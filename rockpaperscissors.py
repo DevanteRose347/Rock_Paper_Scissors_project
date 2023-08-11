@@ -32,3 +32,32 @@
 # In this project, you will need to use the random module to enable to computer to make a random decision. Full documentation on the use of this function is attached in a link to this assignment.
 
 # Once completed, commit your code to github and submit your github link to this assignment.
+
+import random
+
+
+actions = ["rock", "paper", "scissors"]
+playing = True
+
+while playing:
+    user = input("Chose an action (rock, paper, or scissors) or (I quit) to end game: ")
+    computer = random.choice(actions)
+
+    if user == computer:
+        print("Computer: ", computer)
+        print("Game Tied")
+    elif user == "rock" and computer == "paper":
+        print("Computer: ", computer)
+        print("You Lose")
+    elif user == "scissors" and computer == "rock":
+        print("Computer: ", computer)
+        print("You Lose")
+    elif user == "paper" and computer == "scissors":
+        print("Computer: ", computer)
+        print("You Lose")
+    elif user == "I quit":
+        print("Thank you for playing!")
+        playing = False
+    else:
+        print("Computer: ", computer)
+        print("You Win!")

@@ -32,32 +32,48 @@
 # In this project, you will need to use the random module to enable to computer to make a random decision. Full documentation on the use of this function is attached in a link to this assignment.
 
 # Once completed, commit your code to github and submit your github link to this assignment.
+import random  
+import kd_module
 
-import random
+stat_board_win = {}
+actions = ["Rock", "Paper", "Scissors"]
+lose = 0
+win = 0 
+kd = 0
 
 
-actions = ["rock", "paper", "scissors"]
-playing = True
+name = input("enter your name: ").strip().title()
 
-while playing:
-    user = input("Chose an action (rock, paper, or scissors) or (I quit) to end game: ")
+while True:
+       
+
+    player = input(" Choose an  (rock, paper, or scissors) or (I quit) to end game: ").title()
     computer = random.choice(actions)
 
-    if user == computer:
+    if player == computer:
         print("Computer: ", computer)
         print("Game Tied")
-    elif user == "rock" and computer == "paper":
+    elif player == "Rock" and computer == "Paper":
         print("Computer: ", computer)
         print("You Lose")
-    elif user == "scissors" and computer == "rock":
+        lose +=1
+    elif player == "Scissors" and computer == "Rock":
         print("Computer: ", computer)
         print("You Lose")
-    elif user == "paper" and computer == "scissors":
+        lose +=1
+    elif player == "Paper" and computer == "Scissors":
         print("Computer: ", computer)
         print("You Lose")
-    elif user == "I quit":
-        print("Thank you for playing!")
-        playing = False
+        lose +=1
+    elif player == "I Quit":
+        print(f"Thank you for playing {name.title()} !")
+        kd = win / lose
+        stat_board_win[name] = kd
+        break
     else:
         print("Computer: ", computer)
         print("You Win!")
+        stat_board_win[name] = kd
+        win +=1
+
+print(f" Your K.D. is: {kd} !")

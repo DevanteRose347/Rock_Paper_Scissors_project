@@ -32,8 +32,8 @@
 # In this project, you will need to use the random module to enable to computer to make a random decision. Full documentation on the use of this function is attached in a link to this assignment.
 
 # Once completed, commit your code to github and submit your github link to this assignment.
-import random  
 import kd_module
+import secrets
 
 stat_board_win = {}
 actions = ["Rock", "Paper", "Scissors"]
@@ -48,7 +48,7 @@ while True:
        
 
     player = input(" Choose an  (rock, paper, or scissors) or (I quit) to end game: ").title()
-    computer = random.choice(actions)
+    computer = secrets.SystemRandom().choice(actions)
 
     if player == computer:
         print("Computer: ", computer)
